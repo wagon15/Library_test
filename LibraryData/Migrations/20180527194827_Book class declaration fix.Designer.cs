@@ -12,9 +12,10 @@ using System;
 namespace LibraryData.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20180527194827_Book class declaration fix")]
+    partial class Bookclassdeclarationfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,24 +222,6 @@ namespace LibraryData.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Statuses");
-                });
-
-            modelBuilder.Entity("LibraryData.Models.Book", b =>
-                {
-                    b.HasBaseType("LibraryData.Models.LibraryAsset");
-
-                    b.Property<string>("Author")
-                        .IsRequired();
-
-                    b.Property<string>("DeweyIndex")
-                        .IsRequired();
-
-                    b.Property<string>("ISBN")
-                        .IsRequired();
-
-                    b.ToTable("Book");
-
-                    b.HasDiscriminator().HasValue("Book");
                 });
 
             modelBuilder.Entity("LibraryData.Models.Video", b =>
